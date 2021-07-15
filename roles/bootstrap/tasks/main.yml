@@ -1,0 +1,5 @@
+---
+- name: bootstrap
+  become: true
+  block:
+  - include_tasks: terraform.yml

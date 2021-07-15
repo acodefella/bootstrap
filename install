@@ -42,6 +42,9 @@ then
 fi
 
 cd bootstrap
-ansible-playbook --help
+ansible-playbook \
+    --inventory="locahost," \
+    --connection=local      \
+    playbook.yml
 
 } # this ensures the entire script is downloaded #
