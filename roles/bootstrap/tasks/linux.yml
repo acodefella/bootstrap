@@ -9,4 +9,5 @@
       - software-properties-common 
       - curl
       - python3-pip
+      - golang
     state: present
