@@ -6,7 +6,7 @@ This repo is used to bootstrap my workstation.
 
 To bootstrap a new Linux laptop,
 ```
-curl https://raw.githubusercontent.com/acodefella/bootstrap/main/install | bash
+sudo curl https://raw.githubusercontent.com/acodefella/bootstrap/main/install | bash
 ```
 
 ## Tools
