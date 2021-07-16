@@ -16,6 +16,8 @@ This script installs the following tools,
 2. aws cli
 3. azure cli
 4. vnc viewer
+5. kind
+6. kubectl
 
 ## Credits
 
