@@ -2,3 +2,9 @@
   shell: curl -sL https://aka.ms/InstallAzureCLIDeb  | sudo bash -
   args:
     warn: no
+
+- name: Install/Upgrade awscli
+  pip:
+    name: awscli
+    extra_args: --upgrade
+    executable: pip3
