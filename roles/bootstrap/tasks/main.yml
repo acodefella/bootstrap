@@ -2,4 +2,6 @@
 - name: bootstrap
   become: true
   block:
+  - include_task: linux.yml
   - include_tasks: terraform.yml
+  - include_tasks: cloud-cli.yml
