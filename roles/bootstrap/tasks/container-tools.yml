@@ -5,3 +5,8 @@
     url: https://kind.sigs.k8s.io/dl/v0.11.1/kind-{{ ansible_system | lower }}-amd64
     dest: /usr/bin/kind
     mode: 0755
+
+- name: Install kubectl
+  snap:
+    name: kubectl
+    classic: yes
