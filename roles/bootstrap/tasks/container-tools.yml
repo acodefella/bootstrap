@@ -1,19 +1,5 @@
 ---
-- name: Download kind using get_url
-  become: yes
-  get_url:
-    url: https://kind.sigs.k8s.io/dl/v0.11.1/kind-{{ ansible_system | lower }}-amd64
-    dest: /usr/bin/kind
-    mode: 0755
-
-- name: Install kubectl
-  snap:
-    name: kubectl
-    classic: yes
-
-- name: debug through ansible.env
-  debug: var=ansible_env
-
+# Docker
 - name: Add Docker apt key.
   apt_key:
     url: https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg
@@ -58,3 +44,23 @@
     groups: docker
     append: true
   with_items: "{{ ansible_env.SUDO_USER }}"
+
+# kind
+- name: Download kind using get_url
+  become: yes
+  get_url:
+    url: https://kind.sigs.k8s.io/dl/v0.11.1/kind-{{ ansible_system | lower }}-amd64
+    dest: /usr/bin/kind
+    mode: 0755
+
+# kubectl
+- name: Install kubectl
+  snap:
+    name: kubectl
+    classic: yes
+
+# helm
+- name: Install helm
+  snap:
+    name: helm
+    classic: yes
