@@ -4,3 +4,17 @@
   apt:
     deb: "{{ openboard_installer_path }}"
     state: present
+
+- name: Add official Microsoft repository
+  apt_repository:
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/code stable main
+    filename: 'vscode'
+    state: present
+    update_cache: yes
+
+- name: Update to add the repository, and install vscode
+  apt:
+    pkg:
+      - code
+    state: present
+    update_cache: yes
