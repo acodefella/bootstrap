@@ -23,9 +23,10 @@
     state: present
     update_cache: yes
 
-- name: Update to add the repository, and install the Terraform CLI.
+- name: Update to add the repository, and install hashicorp tools
   apt:
     pkg:
       - terraform
+      - vagrant
     state: present
     update_cache: yes
