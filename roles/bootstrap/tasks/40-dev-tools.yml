@@ -1,0 +1,6 @@
+---
+- name: Install Openboard
+  become: yes
+  apt:
+    deb: "{{ openboard_installer_path }}"
+    state: present
