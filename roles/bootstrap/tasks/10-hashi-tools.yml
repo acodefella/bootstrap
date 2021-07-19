@@ -28,5 +28,6 @@
     pkg:
       - terraform
       - vagrant
+      - packer
     state: present
     update_cache: yes
