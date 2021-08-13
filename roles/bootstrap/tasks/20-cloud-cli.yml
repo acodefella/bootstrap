@@ -3,8 +3,16 @@
   args:
     warn: no
 
-- name: Install/Upgrade awscli
-  pip:
-    name: awscli
-    extra_args: --upgrade
-    executable: pip3
+- name: Download awscliv2 installer.
+  unarchive:
+    src: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+    dest: "/tmp"
+    creates: /tmp/aws
+    mode: 0755
+
+- name: Run the installer.
+  command:
+  args:
+    cmd: "{{ executable_temp_dir | default('/tmp') }}/aws/install"
+    creates: /usr/local/bin/aws
+  become: true
