@@ -13,6 +13,6 @@
 - name: Run the installer.
   command:
   args:
-    cmd: "{{ executable_temp_dir | default('/tmp') }}/aws/install"
+    cmd: "/tmp/aws/install"
     creates: /usr/local/bin/aws
   become: true
