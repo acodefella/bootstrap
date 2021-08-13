@@ -43,7 +43,7 @@
     name: "{{ item }}"
     groups: docker
     append: true
-  with_items: "{{ ansible_env.SUDO_USER }}"
+  with_items: "{{ ansible_env.USER }}"
 
 # kind
 - name: Download kind using get_url
