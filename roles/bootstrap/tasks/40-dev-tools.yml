@@ -18,3 +18,22 @@
       - code
     state: present
     update_cache: yes
+
+- name: check latest jx-cli
+  uri:
+    url: https://api.github.com/repos/jenkins-x/jx-cli/releases/latest
+    return_content: true
+  register: jx_cli_latest
+
+- name: "installing jx-cli {{ jx_cli_latest.json.tag_name }}"
+  unarchive:
+    remote_src: yes
+    src: "{{ item.browser_download_url }}"
+    dest: "/usr/bin/"
+    keep_newer: yes
+    extra_opts:
+    - --strip=1
+    - --no-anchored
+    - jx
+  with_items: "{{ jx_cli_latest.json.assets }}"
+  when: "'jx-cli-linux-amd64.tar.gz' in item.name"
