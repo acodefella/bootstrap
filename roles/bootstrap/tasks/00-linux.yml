@@ -12,6 +12,7 @@
       - golang
       - apt-transport-https
       - ca-certificates
+      - jq
     state: present
 
 - name: Install required linux gui packages
